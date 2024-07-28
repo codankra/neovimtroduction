@@ -34,6 +34,7 @@ return {
 				"pyright",
 				"lua_ls",
 				"templ",
+				"gopls",
 			},
 		})
 
