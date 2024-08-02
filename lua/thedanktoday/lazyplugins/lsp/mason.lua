@@ -35,6 +35,7 @@ return {
 				"lua_ls",
 				"templ",
 				"gopls",
+				"bashls",
 			},
 		})
 
