@@ -32,6 +32,11 @@ vim.keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) 
 vim.keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 vim.keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
+vim.keymap.set("n", "<leader>R", function()
+	local word = vim.fn.input("Replace > ")
+	local replace = vim.fn.input("With > ")
+	vim.cmd("cdo s/" .. word .. "/" .. replace .. "/gc")
+end, { desc = "Replace Interactively" })
 -- paste appends to current line will not move the cursor
 -- vim.keymap.set("n", "J", "mzJ`z")
 
@@ -60,8 +65,10 @@ vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 -- format
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
--- Replace all occurances of a search in the currenet file
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-
--- Make appimages, sh scrips executable with " x"
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+-- Replace all occurances of a search in the current file
+vim.keymap.set(
+	"n",
+	"<leader>sr",
+	[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+	{ desc = "replace all occurances of a search in the current file" }
+)

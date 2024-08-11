@@ -17,6 +17,7 @@ return {
 				yaml = { "prettier" },
 				markdown = { "prettier" },
 				lua = { "stylua" },
+				templ = { "prettier" },
 			},
 			format_on_save = {
 				lsp_fallback = true,
@@ -32,5 +33,15 @@ return {
 				timeout_ms = 1000,
 			})
 		end, { desc = "Format file or range (in visual mode)" })
+		-- vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+		-- 	pattern = { "*.templ" },
+		-- 	callback = function()
+		-- 		conform.format({
+		-- 			lsp_fallback = true,
+		-- 			async = false,
+		-- 			timeout_ms = 1000,
+		-- 		})
+		-- 	end,
+		-- })
 	end,
 }
