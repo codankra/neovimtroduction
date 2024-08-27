@@ -18,6 +18,7 @@ opt.ignorecase = true -- ignore case when searching
 opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
 
 opt.cursorline = true
+opt.laststatus = 3
 
 -- theme
 opt.termguicolors = true
@@ -32,3 +33,4 @@ opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or 
 -- split windows
 opt.splitright = true -- split vertical window to the right
 opt.splitbelow = true -- split horizontal window to the bottom
+opt.splitkeep = "screen"
