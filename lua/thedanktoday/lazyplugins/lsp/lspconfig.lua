@@ -108,14 +108,14 @@ return {
 				lspconfig["html"].setup({
 					-- on_attach = on_attach,
 					capabilities = capabilities,
-					filetypes = { "html", "templ" },
+					filetypes = { "html", "templ", "jsx", "tsx" },
 				})
 			end,
 			["tailwindcss"] = function()
 				lspconfig["tailwindcss"].setup({
 					-- on_attach = on_attach,
 					capabilities = capabilities,
-					filetypes = { "templ", "astro", "javascript", "typescript", "react" },
+					filetypes = { "templ", "javascript", "typescript", "react" },
 					init_options = { userLanguages = { templ = "html" } },
 				})
 			end,
@@ -135,6 +135,44 @@ return {
 					capabilities = capabilities,
 					filetypes = { "go", "gomod", "gowork", "gotmpl" },
 					settings = { gopls = { completeUnimported = true, usePlaceholders = true } },
+				})
+			end,
+			["tsserver"] = function()
+				lspconfig["tsserver"].setup({
+					capabilities = capabilities,
+					filetypes = {
+						"typescript",
+						"typescriptreact",
+						"typescript.tsx",
+						"javascript",
+						"javascriptreact",
+						"javascript.jsx",
+					},
+					cmd = { "typescript-language-server", "--stdio" },
+					settings = {
+						typescript = {
+							inlayHints = {
+								includeInlayParameterNameHints = "all",
+								includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+								includeInlayFunctionParameterTypeHints = true,
+								includeInlayVariableTypeHints = true,
+								includeInlayPropertyDeclarationTypeHints = true,
+								includeInlayFunctionLikeReturnTypeHints = true,
+								includeInlayEnumMemberValueHints = true,
+							},
+						},
+						javascript = {
+							inlayHints = {
+								includeInlayParameterNameHints = "all",
+								includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+								includeInlayFunctionParameterTypeHints = true,
+								includeInlayVariableTypeHints = true,
+								includeInlayPropertyDeclarationTypeHints = true,
+								includeInlayFunctionLikeReturnTypeHints = true,
+								includeInlayEnumMemberValueHints = true,
+							},
+						},
+					},
 				})
 			end,
 		})
