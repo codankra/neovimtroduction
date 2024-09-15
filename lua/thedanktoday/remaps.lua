@@ -32,6 +32,8 @@ vim.keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) 
 vim.keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 vim.keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
+vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, {desc = "Diagnose Current Line"})
+
 vim.keymap.set("n", "<leader>R", function()
 	local word = vim.fn.input("Replace > ")
 	local replace = vim.fn.input("With > ")

@@ -108,14 +108,29 @@ return {
 				lspconfig["html"].setup({
 					-- on_attach = on_attach,
 					capabilities = capabilities,
-					filetypes = { "html", "templ", "jsx", "tsx" },
+					filetypes = {
+						"html",
+						"templ",
+						-- "typescriptreact",
+						-- "typescript.tsx",
+						-- "javascriptreact",
+						-- "javascript.jsx",
+					},
 				})
 			end,
 			["tailwindcss"] = function()
 				lspconfig["tailwindcss"].setup({
 					-- on_attach = on_attach,
 					capabilities = capabilities,
-					filetypes = { "templ", "javascript", "typescript", "react" },
+					filetypes = {
+						"templ",
+						"html",
+
+						"typescriptreact",
+						"typescript.tsx",
+						"javascriptreact",
+						"javascript.jsx",
+					},
 					init_options = { userLanguages = { templ = "html" } },
 				})
 			end,
@@ -137,8 +152,8 @@ return {
 					settings = { gopls = { completeUnimported = true, usePlaceholders = true } },
 				})
 			end,
-			["tsserver"] = function()
-				lspconfig["tsserver"].setup({
+			["ts_ls"] = function()
+				lspconfig["ts_ls"].setup({
 					capabilities = capabilities,
 					filetypes = {
 						"typescript",

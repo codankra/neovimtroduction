@@ -16,10 +16,6 @@ return {
 			},
 			-- enable indentation
 			indent = { enable = true },
-			-- enable autotagging (w/ nvim-ts-autotag plugin)
-			autotag = {
-				enable = true,
-			},
 			-- ensure these language parsers are installed
 			ensure_installed = {
 				"json",
@@ -53,6 +49,7 @@ return {
 				enable = true,
 			},
 		})
+		require("nvim-ts-autotag").setup()
 
 		-- Set this to true as recommended in the error message
 		vim.g.skip_ts_context_commentstring_module = true

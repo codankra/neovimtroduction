@@ -1,5 +1,10 @@
 vim.cmd("let g:netrw_liststyle = 3")
 
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "qf",
+	command = "setlocal wrap",
+})
+
 local opt = vim.opt
 
 opt.relativenumber = true
