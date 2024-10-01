@@ -1,9 +1,12 @@
 return {
 	"yetone/avante.nvim",
 	event = "VeryLazy",
+	lazy = false,
+
 	opts = {
 		-- add any opts here
 	},
+	build = "make",
 	dependencies = {
 		"nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
 		"stevearc/dressing.nvim",
